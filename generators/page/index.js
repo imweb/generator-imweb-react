@@ -3,6 +3,7 @@
 const Generator = require('yeoman-generator');
 const getName = require('imweb-git-user-name');
 const chalk = require('chalk');
+const shelljs = require('shelljs');
 
 const validator = require('../../lib/validator');
 
@@ -51,6 +52,12 @@ module.exports = class extends Generator {
         message: '页面 title:',
       },
       {
+        type: 'confirm',
+        name: 'useCode',
+        message: 'use vscode?',
+        default: true,
+      },
+      {
         type: 'input',
         name: 'author',
         message: '作者:',
@@ -86,6 +93,11 @@ module.exports = class extends Generator {
     tpls.forEach((item) => {
       this.fs.copyTpl(this.templatePath(item), this.destinationPath(`src/pages/${this.props.pageName}/${item}`), this.props);
     });
+
+    if (this.props.useCode) {
+      shelljs.exec(`code ${this.destinationPath(`src/pages/${this.props.pageName}/index.scss`)}`);
+      shelljs.exec(`code ${this.destinationPath(`src/pages/${this.props.pageName}/Container.jsx`)}`);
+    }
   }
 
   end() {
