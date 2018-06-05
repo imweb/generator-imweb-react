@@ -10,8 +10,7 @@ function reducer(state, action) {
   let newState;
 
   switch (action.type) {
-    // case ACTION_TYPE:
-    //   break;
+    /* process action here */
     default:
       break;
   }
