@@ -6,7 +6,7 @@
 // import {
 // } from './action_types';
 
-function reducer(state, action) {
+function reducer(state = {}, action) {
   let newState;
 
   switch (action.type) {
@@ -15,7 +15,7 @@ function reducer(state, action) {
       break;
   }
 
-  return newState;
+  return newState || state;
 }
 
 module.exports = reducer;
