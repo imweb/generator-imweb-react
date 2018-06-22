@@ -9,7 +9,7 @@ const validator = require('../../lib/validator');
 
 const assets = [
   'action_creators.js',
-  'action_types.js',
+  'const.js',
   'Container.jsx',
   'index.jsx',
   'index.scss',

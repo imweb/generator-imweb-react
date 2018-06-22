@@ -93,7 +93,7 @@ module.exports = class extends Generator {
 
   writing() {
     const actionCreatorFilePath = this.destinationPath(`src/pages/${this.props.pageName}/action_creators.js`);
-    const actionTypeFilePath = this.destinationPath(`src/pages/${this.props.pageName}/action_types.js`);
+    const actionTypeFilePath = this.destinationPath(`src/pages/${this.props.pageName}/const.js`);
     const reducerFilePath = this.destinationPath(`src/pages/${this.props.pageName}/reducer.js`);
 
     // add action type
@@ -111,8 +111,8 @@ module.exports = class extends Generator {
     cnt = fs.readFileSync(actionCreatorFilePath, 'utf-8');
     cnt = cnt
       .replace('// import {', 'import {')
-      .replace("// } from './action_types';", "} from './action_types';")
-      .replace("} from './action_types';", `  ${this.props.actionType},\n} from './action_types';`)
+      .replace("// } from './const';", "} from './const';")
+      .replace("} from './const';", `  ${this.props.actionType},\n} from './const';`)
       .replace('export default {', `export default {\n  ${this.props.creatorName},`)
       .replace(
         '/* actions creators end */',
@@ -125,8 +125,8 @@ module.exports = class extends Generator {
     cnt = fs.readFileSync(reducerFilePath, 'utf-8');
     cnt = cnt
       .replace('// import {', 'import {')
-      .replace("// } from './action_types';", "} from './action_types';")
-      .replace("} from './action_types';", `  ${this.props.actionType},\n} from './action_types';`)
+      .replace("// } from './const';", "} from './const';")
+      .replace("} from './const';", `  ${this.props.actionType},\n} from './const';`)
       .replace(
         '/* process action here */',
         `/* process action here */\n    case ${this.props.actionType}:\n      break;`

@@ -1,5 +1,5 @@
 // import {
-// } from './action_types';
+// } from './const';
 
 /* actions creators */
 

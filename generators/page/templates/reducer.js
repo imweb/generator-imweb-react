@@ -4,7 +4,7 @@
  */
 
 // import {
-// } from './action_types';
+// } from './const';
 
 function reducer(state = {}, action) {
   let newState;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider, connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import Container from './Container';
